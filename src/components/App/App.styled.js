@@ -1,17 +1,11 @@
 import styled from '@emotion/styled';
 
-// export const Wrapper = styled.div`
-//     margin-left: auto;
-//     margin-right: auto;
-//     text-align: center;
-//     background: #FFFFFF;
-//     box-shadow: 0px 0px 35px rgb(212 20 90 / 25%);
-//     border-radius: 15px;
-//    width: 595px;
-//     height: 100%;
-//     padding: 10px;
-//     margin-top: 10px;
-// `;
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding-bottom: 24px;
+`;
 
 // export const MainTitle = styled.h1`
 //   font-style: normal;

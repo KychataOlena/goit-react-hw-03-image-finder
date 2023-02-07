@@ -1,5 +1,11 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
+import {
+  SearchForm,
+  SearchFormInput,
+  SearchbarHeader,
+  FormButton,
+} from './Searchbar.stuyled';
 
 export class Searchbar extends Component {
   state = {
@@ -19,18 +25,24 @@ export class Searchbar extends Component {
       return;
     }
     this.props.onSubmit(this.state.searchName);
-    this.setState({ searchName: '' });
+    this.setState({
+      searchName: '',
+      page: 1,
+      items: [],
+    });
+    event.target.reset();
   };
   render() {
     return (
-      <header class="searchbar">
-        <form onSubmit={this.handleSubmit}>
-          <button type="submit" class="button">
+      <SearchbarHeader class="searchbar">
+        <SearchForm onSubmit={this.handleSubmit}>
+          <FormButton type="submit">
             <span class="button-label">Search</span>
-          </button>
+          </FormButton>
 
-          <input
+          <SearchFormInput
             class="input"
+            name=" searchName"
             type="text"
             autocomplete="off"
             autofocus
@@ -38,8 +50,8 @@ export class Searchbar extends Component {
             value={this.state.searchName}
             onChange={this.handleNameChange}
           />
-        </form>
-      </header>
+        </SearchForm>
+      </SearchbarHeader>
     );
   }
 }
