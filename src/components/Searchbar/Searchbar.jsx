@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
+import { GoSearch } from 'react-icons/go';
 import {
   SearchForm,
   SearchFormInput,
@@ -37,7 +38,8 @@ export class Searchbar extends Component {
       <SearchbarHeader class="searchbar">
         <SearchForm onSubmit={this.handleSubmit}>
           <FormButton type="submit">
-            <span class="button-label">Search</span>
+            <GoSearch />
+            {/* <span class="button-label">Search</span> */}
           </FormButton>
 
           <SearchFormInput
