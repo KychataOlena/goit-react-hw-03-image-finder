@@ -1,10 +1,15 @@
 import { Overlay, ModalContent } from './Modal.styled';
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends Component {
+  static defaultProps = {
+    onClickL: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
+  };
   componentDidMount() {
     // console.log('Modal componentDidMount');
     console.log(this.props.largeImageURL);
@@ -32,10 +37,11 @@ export class Modal extends Component {
   };
 
   render() {
+    const { onClick } = this.props;
     return createPortal(
       <Overlay onClick={this.handleBackdropClick}>
         <ModalContent>
-          <img src={`${this.props.onClick}`} alt="" />
+          <img src={`${onClick}`} alt="" />
         </ModalContent>
       </Overlay>,
       modalRoot
